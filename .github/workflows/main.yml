@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRINTECH - Impression et Modélisation 3D en Algérie</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #ffffff;
+        }
+        .section {
+            padding: 5rem 1.5rem;
+        }
+        .logo-container {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 2px solid #000;
+            color: #000;
+            padding: 0.75rem 2rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        .range-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+        }
+        .progress-step.active {
+            background-color: #000;
+            color: #fff;
+        }
+        .progress-step::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #eee;
+            right: -100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .progress-step:last-child::after {
+            display: none;
+        }
+        .progress-step.completed {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .progress-step.completed::after {
+            background-color: #4CAF50;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="logo-container mr-4">
+                        <img src="https://page1.genspark.site/v1/base64_upload/5c74d5aa24eadf6db775c8b3e1e0f6a2" alt="PRINTECH Logo" class="h-12">
+                    </div>
+                    <h1 class="text-2xl font-bold">PRINTECH</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="font-medium hover:text-gray-600">Accueil</a>
+                    <a href="#services" class="font-medium hover:text-gray-600">Services</a>
+                    <a href="#portfolio" class="font-medium hover:text-gray-600">Portfolio</a>
+                    <a href="#devis" class="font-medium hover:text-gray-600">Devis</a>
+                    <a href="#configurateur" class="font-medium hover:text-gray-600">Configurateur</a>
+                    <a href="#contact" class="font-medium hover:text-gray-600">Contact</a>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-black">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#accueil" class="block py-2 text-center font-medium hover:bg-gray-100">Accueil</a>
+                <a href="#services" class="block py-2 text-center font-medium hover:bg-gray-100">Services</a>
+                <a href="#portfolio" class="block py-2 text-center font-medium hover:bg-gray-100">Portfolio</a>
+                <a href="#devis" class="block py-2 text-center font-medium hover:bg-gray-100">Devis</a>
+                <a href="#configurateur" class="block py-2 text-center font-medium hover:bg-gray-100">Configurateur</a>
+                <a href="#contact" class="block py-2 text-center font-medium hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl font-bold mb-4">Transformez vos idées en objets réels</h2>
+                    <p class="text-lg mb-6">
+                        PRINTECH est votre partenaire de confiance en Algérie pour l'impression 3D et la modélisation. 
+                        Nous donnons vie à vos concepts avec précision et expertise.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#configurateur" class="btn-primary text-center">Configurer votre projet</a>
+                        <a href="#devis" class="btn-outline text-center">Demander un devis</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md h-80 bg-black rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-cube text-6xl mb-4"></i>
+                            <p class="text-xl">Visualisation 3D</p>
+                            <p class="text-sm mt-2">Impression de haute précision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Nos Services</h2>
+                <p class="text-gray-600">Des solutions complètes d'impression et modélisation 3D</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                    <div class="bg-black rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-print text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Impression 3D de prototypes</h3>
+                    <p class="text-gray-600">
+                        Matérialisez rapidement vos concepts avec nos services d'impression 3D haute précision.
+                        Idéal pour le prototypage et les petites séries.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                    <div class="bg-black rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cubes text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Modélisation 3D</h3>
+                    <p class="text-gray-600">
+                        Nos experts transforment vos croquis ou idées en modèles 3D parfaitement adaptés 
+                        à vos besoins spécifiques.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                    <div class="bg-black rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-qrcode text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Scan 3D</h3>
+                    <p class="text-gray-600">
+                        Numérisez des objets physiques avec précision pour créer des répliques exactes ou modifier des 
+                        conceptions existantes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gray-100 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">Nos domaines d'expertise</h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-building text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Architectes & Urbanistes</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-palette text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Designers & Artistes</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-heartbeat text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Secteur médical</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-car text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Automobile</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-rocket text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Startups & PME</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-user-graduate text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Étudiants & Makers</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-bullhorn text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Marketing & Événementiel</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-user text-black text-2xl mb-3"></i>
+                        <p class="font-medium">Particuliers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Notre Portfolio</h2>
+                <p class="text-gray-600">Découvrez nos projets récents et nos réalisations</p>
+            </div>
+            
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center space-x-2 mb-8">
+                    <button class="portfolio-filter active px-4 py-2 rounded bg-black text-white mb-2" data-filter="all">Tous</button>
+                    <button class="portfolio-filter px-4 py-2 rounded bg-gray-200 text-black mb-2" data-filter="architecture">Architecture</button>
+                    <button class="portfolio-filter px-4 py-2 rounded bg-gray-200 text-black mb-2" data-filter="medical">Médical</button>
+                    <button class="portfolio-filter px-4 py-2 rounded bg-gray-200 text-black mb-2" data-filter="industriel">Industriel</button>
+                    <button class="portfolio-filter px-4 py-2 rounded bg-gray-200 text-black mb-2" data-filter="artistique">Artistique</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Les éléments du portfolio seraient normalement générés dynamiquement, voici un exemple statique -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="architecture">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-building text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Maquette architecturale</h3>
+                        <p class="text-gray-600 text-sm mb-2">Impression 3D pour un projet résidentiel</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Architecture</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="medical">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Prothèse sur mesure</h3>
+                        <p class="text-gray-600 text-sm mb-2">Impression 3D pour application médicale</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Médical</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="industriel">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-cogs text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Pièce de rechange industrielle</h3>
+                        <p class="text-gray-600 text-sm mb-2">Modélisation et impression 3D</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Industriel</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="artistique">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-palette text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Sculpture contemporaine</h3>
+                        <p class="text-gray-600 text-sm mb-2">Création artistique imprimée en 3D</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Artistique</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="architecture">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-monument text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Modèle urbain</h3>
+                        <p class="text-gray-600 text-sm mb-2">Plan d'urbanisme en 3D</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Architecture</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm" data-category="industriel">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <i class="fas fa-car text-4xl"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Prototype automobile</h3>
+                        <p class="text-gray-600 text-sm mb-2">Pièce conceptuelle pour l'industrie automobile</p>
+                        <div class="flex justify-between">
+                            <span class="bg-gray-200 text-xs px-2 py-1 rounded">Industriel</span>
+                            <a href="#" class="text-black text-sm">Voir détails <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="btn-outline">Voir plus de projets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configurateur Section -->
+    <section id="configurateur" class="section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Configurateur de Prix</h2>
+                <p class="text-gray-600">Estimez rapidement le coût de votre projet d'impression 3D</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                <div class="mb-8">
+                    <div class="flex justify-center space-x-4 mb-6">
+                        <button class="config-tab active px-4 py-2 border-b-2 border-black font-medium" data-tab="impression">Impression 3D</button>
+                        <button class="config-tab px-4 py-2 border-b-2 border-gray-200 font-medium" data-tab="modelisation">Modélisation 3D</button>
+                        <button class="config-tab px-4 py-2 border-b-2 border-gray-200 font-medium" data-tab="scan">Scan 3D</button>
+                    </div>
+                    
+                    <!-- Tab Impression 3D -->
+                    <div class="tab-content active" id="tab-impression">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Type de matériau :</label>
+                            <select class="w-full p-3 border border-gray-300 rounded">
+                                <option>PLA - Standard</option>
+                                <option>ABS - Résistant</option>
+                                <option>PETG - Flexible</option>
+                                <option>TPU - Ultra flexible</option>
+                                <option>Résine - Haute précision</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Dimensions approximatives (cm) :</label>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Longueur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="10">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Largeur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="10">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Hauteur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="10">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Qualité d'impression :</label>
+                            <div class="relative pt-8">
+                                <span class="range-value">Standard</span>
+                                <input type="range" min="1" max="3" value="2" class="w-full" id="quality-slider">
+                                <div class="flex justify-between text-xs text-gray-600 mt-1">
+                                    <span>Brouillon</span>
+                                    <span>Standard</span>
+                                    <span>Haute qualité</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Quantité :</label>
+                            <input type="number" min="1" value="1" class="w-full p-3 border border-gray-300 rounded">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Délai souhaité :</label>
+                            <select class="w-full p-3 border border-gray-300 rounded">
+                                <option>Standard (7-10 jours)</option>
+                                <option>Rapide (3-5 jours)</option>
+                                <option>Express (1-2 jours)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Modélisation 3D -->
+                    <div class="tab-content" id="tab-modelisation">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Type de modélisation :</label>
+                            <select class="w-full p-3 border border-gray-300 rounded">
+                                <option>Simple (objet basique)</option>
+                                <option>Intermédiaire (mécanisme simple)</option>
+                                <option>Complexe (assemblage détaillé)</option>
+                                <option>Organique (forme naturelle)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Description du projet :</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded h-32" placeholder="Décrivez votre projet de modélisation..."></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Avez-vous des références visuelles ?</label>
+                            <div class="mt-2">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="references" class="form-radio" checked>
+                                    <span class="ml-2">Oui</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" name="references" class="form-radio">
+                                    <span class="ml-2">Non</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Format de livraison souhaité :</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" checked>
+                                    <span class="ml-2">STL</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">OBJ</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">STEP</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">3DS</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Délai souhaité :</label>
+                            <select class="w-full p-3 border border-gray-300 rounded">
+                                <option>Standard (10-15 jours)</option>
+                                <option>Rapide (5-7 jours)</option>
+                                <option>Express (2-4 jours)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Scan 3D -->
+                    <div class="tab-content" id="tab-scan">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Type d'objet à scanner :</label>
+                            <select class="w-full p-3 border border-gray-300 rounded">
+                                <option>Petit objet (moins de 20cm)</option>
+                                <option>Objet moyen (20-50cm)</option>
+                                <option>Grand objet (plus de 50cm)</option>
+                                <option>Pièce complexe</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Dimensions approximatives (cm) :</label>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Longueur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="15">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Largeur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="15">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Hauteur</label>
+                                    <input type="number" min="1" class="w-full p-2 border border-gray-300 rounded" value="15">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Niveau de détail requis :</label>
+                            <div class="relative pt-8">
+                                <span class="range-value">Moyen</span>
+                                <input type="range" min="1" max="3" value="2" class="w-full" id="detail-slider">
+                                <div class="flex justify-between text-xs text-gray-600 mt-1">
+                                    <span>Basique</span>
+                                    <span>Moyen</span>
+                                    <span>Haute précision</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Format de fichier souhaité :</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" checked>
+                                    <span class="ml-2">STL</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">OBJ</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">PLY</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">STEP</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Traitement post-scan requis :</label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">Nettoyage du maillage</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">Correction des surfaces</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">Modélisation paramétrique</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="ml-2">Textures et couleurs</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold">Estimation de prix</h3>
+                            <p class="text-gray-600 text-sm">Basée sur les paramètres sélectionnés</p>
+                        </div>
+                        <div class="text-right mt-4 md:mt-0">
+                            <span class="text-3xl font-bold">4 500 - 6 000 DA</span>
+                            <p class="text-gray-600 text-sm">TVA incluse</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="btn-primary">Demander un devis précis</button>
+                    <p class="text-sm text-gray-500 mt-2">Cette estimation est approximative et sera affinée après étude de votre fichier</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Upload Section -->
+    <section id="upload" class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Envoyez votre fichier 3D</h2>
+                <p class="text-gray-600">Soumettez directement vos fichiers pour une analyse et un devis précis</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-6">Processus de soumission</h3>
+                    
+                    <div class="flex flex-wrap md:flex-nowrap items-start mb-8">
+                        <div class="flex w-full mb-4 md:mb-0">
+                            <div class="progress-step active">1</div>
+                            <div class="flex-grow border-t-2 border-gray-300 my-auto"></div>
+                        </div>
+                        <div class="flex w-full mb-4 md:mb-0">
+                            <div class="progress-step">2</div>
+                            <div class="flex-grow border-t-2 border-gray-300 my-auto"></div>
+                        </div>
+                        <div class="flex w-full mb-4 md:mb-0">
+                            <div class="progress-step">3</div>
+                            <div class="flex-grow border-t-2 border-gray-300 my-auto"></div>
+                        </div>
+                        <div class="flex w-full">
+                            <div class="progress-step">4</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center text-sm mb-8">
+                        <div class="font-medium">Envoi du fichier</div>
+                        <div class="text-gray-500">Analyse technique</div>
+                        <div class="text-gray-500">Devis et paiement</div>
+                        <div class="text-gray-500">Production et livraison</div>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Type de service :</label>
+                        <select class="w-full p-3 border border-gray-300 rounded">
+                            <option>Impression 3D</option>
+                            <option>Modélisation 3D</option>
+                            <option>Scan 3D</option>
+                            <option>Service complet (Modélisation + Impression)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
+                        <p class="mb-2">Glissez-déposez votre fichier ici ou</p>
+                        <button type="button" class="btn-outline inline-block">Parcourir</button>
+                        <p class="text-sm text-gray-500 mt-2">Formats acceptés : STL, OBJ, STEP, 3DS (max 50MB)</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Vos coordonnées :</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Nom" class="w-full p-3 border border-gray-300 rounded">
+                            <input type="text" placeholder="Prénom" class="w-full p-3 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded">
+                            <input type="tel" placeholder="Téléphone" class="w-full p-3 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Instructions spécifiques (optionnel) :</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded h-24" placeholder="Précisez toute information supplémentaire concernant votre projet..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1">
+                            <span class="ml-2 text-sm text-gray-700">J'accepte que PRINTECH me contacte pour discuter de mon projet et j'ai lu les <a href="#" class="underline">conditions générales</a>.</span>
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary">Soumettre mon fichier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devis Section -->
+    <section id="devis" class="section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Demande de Devis</h2>
+                <p class="text-gray-600">Remplissez le formulaire ci-dessous pour recevoir un devis personnalisé</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                <form>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold mb-4">Informations personnelles</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Nom*</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Prénom*</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Email*</label>
+                                <input type="email" class="w-full p-3 border border-gray-300 rounded" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Téléphone*</label>
+                                <input type="tel" class="w-full p-3 border border-gray-300 rounded" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div>
+                            <label class="block text-gray-700 mb-1">Entreprise/Organisation (optionnel)</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div>
+                            <label class="block text-gray-700 mb-1">Adresse</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded mb-3" placeholder="Rue">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded" placeholder="Ville">
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded" placeholder="Wilaya">
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded" placeholder="Code postal">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold mb-4">Détails du projet</h3>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-1">Type de service*</label>
+                            <select class="w-full p-3 border border-gray-300 rounded" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option>Impression 3D</option>
+                                <option>Modélisation 3D</option>
+                                <option>Scan 3D</option>
+                                <option>Service complet (Modélisation + Impression)</option>
+                                <option>Autre (précisez dans la description)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-1">Description du projet*</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded h-32" placeholder="Décrivez votre projet en détail..." required></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-1">Budget approximatif (DA)</label>
+                        <select class="w-full p-3 border border-gray-300 rounded">
+                            <option value="">Sélectionnez une fourchette</option>
+                            <option>Moins de 5 000 DA</option>
+                            <option>5 000 - 10 000 DA</option>
+                            <option>10 000 - 20 000 DA</option>
+                            <option>20 000 - 50 000 DA</option>
+                            <option>Plus de 50 000 DA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-1">Date souhaitée de livraison</label>
+                        <input type="date" class="w-full p-3 border border-gray-300 rounded">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-1">Comment avez-vous connu PRINTECH ?</label>
+                        <select class="w-full p-3 border border-gray-300 rounded">
+                            <option value="">Sélectionnez une option</option>
+                            <option>Recherche internet</option>
+                            <option>Réseaux sociaux</option>
+                            <option>Recommandation</option>
+                            <option>Événement / Salon</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1" required>
+                            <span class="ml-2 text-sm text-gray-700">J'autorise PRINTECH à me contacter au sujet de ma demande et j'accepte les <a href="#" class="underline">conditions générales</a>.*</span>
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary">Envoyer ma demande de devis</button>
+                        <p class="text-sm text-gray-500 mt-2">* Champs obligatoires</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Ce que disent nos clients</h2>
+                <p class="text-gray-600">Découvrez les expériences de ceux qui nous ont fait confiance</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Le service de PRINTECH est exceptionnel. J'ai eu besoin d'un prototype urgent pour présenter à des investisseurs et ils ont livré un travail de qualité en un temps record."</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Karim Benali</p>
+                            <p class="text-sm text-gray-600">Startup MediTech</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"En tant qu'architecte, j'avais besoin d'une maquette précise pour un projet important. Non seulement le résultat était parfait, mais les conseils techniques étaient d'une grande aide."</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Amina Kaddour</p>
+                            <p class="text-sm text-gray-600">Cabinet d'architecture</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"La qualité des impressions est impressionnante. J'ai commandé des pièces détaillées pour un prototype industriel et le résultat dépassait mes attentes. Livraison rapide dans toute l'Algérie."</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Mohamed Zerrouki</p>
+                            <p class="text-sm text-gray-600">Ingénieur mécanique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Questions fréquentes</h2>
+                <p class="text-gray-600">Trouvez rapidement des réponses à vos questions</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Quels formats de fichiers acceptez-vous ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Nous acceptons la plupart des formats de fichiers 3D courants, notamment STL, OBJ, STEP, 3DS, FBX, DXF et IGES. Si vous avez un format différent, n'hésitez pas à nous contacter pour vérifier sa compatibilité.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Quels sont vos délais de livraison ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Nos délais de livraison varient en fonction de la complexité du projet, du volume et de la finition demandée. En général, les impressions simples sont réalisées en 3 à 5 jours ouvrables. Pour les projets plus complexes ou les grandes séries, comptez 7 à 15 jours. Nous proposons également un service express avec des délais de 24 à 48 heures (sous réserve de faisabilité technique).</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Quelles sont les options de livraison disponibles ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Nous livrons partout en Algérie via des transporteurs fiables. Vous pouvez également venir retirer votre commande directement dans nos locaux. Les frais de livraison dépendent de la taille de la commande et de la destination. Pour les commandes volumineuses ou urgentes, nous proposons des options de transport express.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Je n'ai pas de modèle 3D. Pouvez-vous le créer pour moi ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Absolument ! Notre équipe de designers 3D peut créer votre modèle à partir de zéro, selon vos spécifications. Nous pouvons travailler à partir de croquis, de photos, de descriptions détaillées ou même d'objets physiques que nous scannerons. Ce service de modélisation est facturé en fonction de la complexité et du temps nécessaire.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Quels matériaux proposez-vous pour l'impression 3D ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Nous proposons une large gamme de matériaux adaptés à différents besoins : PLA (standard, écologique), ABS (résistant, idéal pour pièces fonctionnelles), PETG (flexible, résistant aux chocs), TPU (ultra flexible), résine (haute précision pour modèles détaillés), nylon (résistance mécanique) et bien d'autres. Chaque matériau a des propriétés spécifiques que nous pouvons vous conseiller selon votre projet.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <button class="faq-question w-full text-left p-4 bg-gray-100 rounded-lg font-bold flex justify-between items-center">
+                        Comment sont calculés les prix pour l'impression 3D ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer bg-white p-4 rounded-lg mt-1 hidden">
+                        <p>Le prix est calculé en fonction de plusieurs paramètres : le volume de matière utilisée, le temps d'impression, le type de matériau choisi, la complexité de la pièce, les finitions demandées et la quantité. Notre configurateur en ligne vous donne une première estimation, mais pour un devis précis, nous recommandons de nous soumettre votre fichier 3D.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Contactez-nous</h2>
+                <p class="text-gray-600">Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="md:w-1/3 bg-black text-white p-8">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4">Coordonnées</h3>
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                                <p>123 Rue de l'Innovation<br>Alger, Algérie 16000</p>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone-alt mr-3"></i>
+                                <p>+213 (0) 555 123 456</p>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <p>contact@printech-dz.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4">Horaires d'ouverture</h3>
+                            <p class="mb-2">Dimanche - Jeudi : 9h - 17h</p>
+                            <p>Samedi : 9h - 13h</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Suivez-nous</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 p-8">
+                        <h3 class="text-xl font-bold mb-6">Envoyez-nous un message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <input type="text" placeholder="Nom" class="w-full p-3 border border-gray-300 rounded" required>
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <input type="text" placeholder="Sujet" class="w-full p-3 border border-gray-300 rounded" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <textarea placeholder="Message" class="w-full p-3 border border-gray-300 rounded h-32" required></textarea>
+                            </div>
+                            
+                            <div class="text-center md:text-left">
+                                <button type="submit" class="btn-primary">Envoyer le message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <div class="h-96 bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+            <i class="fas fa-map-marked-alt text-5xl mb-4"></i>
+            <p class="text-xl">Carte de localisation</p>
+            <p class="text-sm">(Emplacement réel à intégrer via Google Maps)</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="mb-4">
+                        <div class="bg-white inline-block p-3 rounded">
+                            <img src="https://page1.genspark.site/v1/base64_upload/5c74d5aa24eadf6db775c8b3e1e0f6a2" alt="PRINTECH Logo" class="h-10">
+                        </div>
+                    </div>
+                    <p class="mb-4">PRINTECH est votre partenaire pour l'impression et la modélisation 3D en Algérie. Des solutions innovantes pour tous vos projets.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Impression 3D</a></li>
+                        <li><a href="#" class="hover:underline">Modélisation 3D</a></li>
+                        <li><a href="#" class="hover:underline">Scan 3D</a></li>
+                        <li><a href="#" class="hover:underline">Formation</a></li>
+                        <li><a href="#" class="hover:underline">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Ressources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Blog</a></li>
+                        <li><a href="#" class="hover:underline">Tutoriels</a></li>
+                        <li><a href="#" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Matériaux</a></li>
+                        <li><a href="#" class="hover:underline">Nos clients</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Légal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Conditions générales</a></li>
+                        <li><a href="#" class="hover:underline">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:underline">Livraison</a></li>
+                        <li><a href="#" class="hover:underline">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2025 PRINTECH. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-black text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle current answer
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+                
+                // Close other answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer && !item.classList.contains('hidden')) {
+                        item.classList.add('hidden');
+                        item.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                        item.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+        
+        // Portfolio filter
+        document.querySelectorAll('.portfolio-filter').forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.portfolio-filter').forEach(btn => {
+                    btn.classList.remove('bg-black', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-black');
+                });
+                filter.classList.remove('bg-gray-200', 'text-black');
+                filter.classList.add('bg-black', 'text-white');
+                
+                const category = filter.dataset.filter;
+                
+                // Filter items
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Configurator tabs
+        document.querySelectorAll('.config-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.config-tab').forEach(btn => {
+                    btn.classList.remove('active', 'border-black');
+                    btn.classList.add('border-gray-200');
+                });
+                tab.classList.add('active', 'border-black');
+                tab.classList.remove('border-gray-200');
+                
+                // Show corresponding content
+                const tabId = tab.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('tab-' + tabId).classList.add('active');
+            });
+        });
+        
+        // Range sliders
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            const updateValue = () => {
+                const value = slider.value;
+                const valueDisplay = slider.previousElementSibling;
+                
+                if (slider.id === 'quality-slider') {
+                    valueDisplay.textContent = ['Brouillon', 'Standard', 'Haute qualité'][value - 1];
+                } else if (slider.id === 'detail-slider') {
+                    valueDisplay.textContent = ['Basique', 'Moyen', 'Haute précision'][value - 1];
+                }
+                
+                // Position value display
+                const percent = ((value - slider.min) / (slider.max - slider.min)) * 100;
+                valueDisplay.style.left = `calc(${percent}%)`;
+            };
+            
+            updateValue(); // Initial update
+            slider.addEventListener('input', updateValue);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
